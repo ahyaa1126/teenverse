@@ -1,0 +1,3 @@
+const form=document.getElementById('loginForm'),statusEl=document.getElementById('status');
+if(localStorage.getItem('teenverseToken')) location.href='chat.html';
+form.addEventListener('submit',async e=>{e.preventDefault();statusEl.textContent='Logging in…';statusEl.className='status';try{const r=await fetch('/api/auth/login',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({username:username.value.trim(),password:password.value})});const d=await r.json();if(!r.ok)throw new Error(d.message||'Login failed');localStorage.setItem('teenverseToken',d.token);localStorage.setItem('teenverseUser',JSON.stringify(d.user));location.href='chat.html'}catch(err){statusEl.textContent=err.message;statusEl.className='status error'}});
