@@ -47,19 +47,19 @@ const userSchema = new mongoose.Schema(
       default: "Not set",
       maxlength: 60
     },
-    role: {
+   role: {
     type: String,
     enum: [
-        "Owner",
-        "Co-Owner",
-        "Super Admin",
-        "Admin",
-        "Moderator",
-        "Super VIP",
+        "OWNER",
+        "CO_OWNER",
+        "SUPER_ADMIN",
+        "ADMIN",
+        "MODERATOR",
+        "SUPER_VIP",
         "VIP",
-        "User"
+        "USER"
     ],
-    default: "User"
+    default: "USER"
 },
     bio: {
       type: String,
